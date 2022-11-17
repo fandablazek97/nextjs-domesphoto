@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import AppLink from "@ui/AppLink";
 
 type ActiveNavLinkProps = {
@@ -15,15 +14,13 @@ export default function ActiveNavLink({
   onClick,
 }: ActiveNavLinkProps) {
   // Component logic
-  const router = useRouter();
-  const matches = router.pathname === href;
   return (
     // Component markup
     <AppLink
       href={href}
       onClick={onClick}
-      hoverEffect="underline"
-      className={`${matches ? "!text-primary" : ""} ${className}`}
+      hoverEffect="underline-slide"
+      className={`${className}`}
     >
       {children}
     </AppLink>

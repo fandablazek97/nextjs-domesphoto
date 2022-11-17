@@ -1,48 +1,10 @@
-import ContactForm from "@components/contact/ContactForm";
-import Accordion from "@ui/Accordion";
-import Alert from "@ui/Alert";
-import Badge from "@ui/Badge";
-import Button from "@ui/Button";
-import FormCombobox from "@ui/FormCombobox";
+import Hero from "@components/home/Hero";
 import Heading from "@ui/Heading";
 import Seo from "@ui/Seo";
-import SocialLinks from "@ui/SocialLinks";
-import Spinner from "@ui/Spinner";
 import Wrapper from "@ui/Wrapper";
 import type { NextPage } from "next";
-
-// ToDo
-// ----------------------
-
-// 01 - General
-// Cookie consent podle gdpr 2022 (context api + cookies ??) 8h.
-// Navbar - doladit - 1 hod
-// Button - dodělat hover efekty přes props? - 3h
-// Button - ripple effekt? ??
-// Dodělat na komponenty focus-visible (třeba anchor) - 1h
-
-// 02 - Pages
-// Page: Index - Ukázka frameworku - 3h
-// Page: Theme - Zobrazené komponenty pro snadnou úpravu šablony - 2h
-
-// 03 - Components
-// Components: Footer
-// Components: Social Links and Icons - 1h
-// Components: Avatar - 2h
-// Components: Anchor (update) - 1.5h
-// Components: Progress bar - 2h
-// Components: Tooltip - 2h
-// Components: Quote - 1h
-// Components: Floating button (Fixed CTA - right bottom corner)
-// Components Forms: Type Date - 1h
-// Components Forms: Type Number - 2h
-// Components Forms: File - 1h
-// Components: Full contact form - 2h
-
-// 04 - After some time
-// doladit a začistit - 4h
-// Až bude vše implementované, odladit rychlost, aby v page speed bylo skóre 100 / 100
-// -> Možná přesun na preact/compact? (Vyzkoušet kvůli kompatibilitě)
+import UiSection from "@ui/UiSection";
+import Portfolio from "@components/home/Portfolio";
 
 const Home: NextPage = () => {
   return (
@@ -54,153 +16,63 @@ const Home: NextPage = () => {
         noFollow={false}
       />
       {/* Hero section */}
-      <Wrapper paddedContent="lg" size="sm">
-        <Heading as={"h1"} size="2xl">
-          Hlavní nadpis
-        </Heading>
-      </Wrapper>
+      <Hero />
 
-      <Wrapper size="sm" paddedContent="lg" className="space-y-5">
-        <SocialLinks />
-        <ContactForm />
-        <FormCombobox
-          name="combobox"
-          label="label"
-          radius="full"
-          helperText="Lorem ipsum dolor sit amet"
-          options={[
-            "Fanda",
-            "Libor",
-            "Marie",
-            "Kuba",
-            "Vláďa",
-            "Dominik",
-            "Adam",
-            "Radek",
-          ]}
-          variant="outlined"
-        />
-        <Alert
-          status="success"
-          title="Lorem ipsum dolor sit amet"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos deserunt cum temporibus adipisci perferendis, mollitia, obcaecati fugiat."
-        />
-        <Alert
-          status="error"
-          title="Lorem ipsum dolor sit amet"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos deserunt cum temporibus adipisci perferendis, mollitia, obcaecati fugiat."
-        />
-        <Alert
-          status="warning"
-          title="Lorem ipsum dolor sit amet"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos deserunt cum temporibus adipisci perferendis, mollitia, obcaecati fugiat."
-        />
-        <Alert
-          status="info"
-          title="Lorem ipsum dolor sit amet"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos deserunt cum temporibus adipisci perferendis, mollitia, obcaecati fugiat."
-        />
-        <div className="flex flex-wrap gap-5">
-          <Badge hasDot>Badge</Badge>
-          <Badge hasDot>Badge</Badge>
-          <Badge hasDot>Badge</Badge>
-          <Badge hasDot>Badge</Badge>
-          <Badge hasDot>Badge</Badge>
-        </div>
-        <div className="flex flex-wrap gap-5">
-          <Button>Button</Button>
-          <Button>Button</Button>
-          <Button>Button</Button>
-          <Button>Button</Button>
-          <Button>Button</Button>
-          <Button>Button</Button>
-        </div>
-        <div className="flex flex-wrap gap-5">
-          <Spinner />
-          <Spinner />
-          <Spinner />
-          <Spinner />
-          <Spinner />
-          <Spinner />
-        </div>
-        <div className="divide-y-copy-rich/15 divide-y">
-          <Accordion title="Lorem ipsum dolor sit amet?">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos
-            deserunt cum temporibus adipisci perferendis, mollitia, obcaecati
-            fugiat, odit at laudantium autem sequi eos cumque labore amet itaque
-            rerum? Harum delectus soluta optio, sequi veniam, doloribus ducimus,
-            animi accusantium deserunt molestias vero ex. Quia temporibus
-            possimus nulla asperiores. Earum, eligendi delectus officiis, aut
-            expedita consectetur in iusto deserunt minus maiores nam accusamus
-            quos dolorem nihil nesciunt. Id sit consequatur voluptatum obcaecati
-            error earum voluptatibus molestias pariatur, quis placeat
-            laboriosam? Corporis corrupti error dolores totam, tenetur
-            laudantium eveniet fugiat consequuntur ipsa quisquam perspiciatis.
-            Repellat consequatur animi iusto sapiente beatae molestiae
-            assumenda?
-          </Accordion>
-          <Accordion title="Lorem ipsum dolor sit amet?">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos
-            deserunt cum temporibus adipisci perferendis, mollitia, obcaecati
-            fugiat, odit at laudantium autem sequi eos cumque labore amet itaque
-            rerum? Harum delectus soluta optio, sequi veniam, doloribus ducimus,
-            animi accusantium deserunt molestias vero ex. Quia temporibus
-            possimus nulla asperiores. Earum, eligendi delectus officiis, aut
-            expedita consectetur in iusto deserunt minus maiores nam accusamus
-            quos dolorem nihil nesciunt. Id sit consequatur voluptatum obcaecati
-            error earum voluptatibus molestias pariatur, quis placeat
-            laboriosam? Corporis corrupti error dolores totam, tenetur
-            laudantium eveniet fugiat consequuntur ipsa quisquam perspiciatis.
-            Repellat consequatur animi iusto sapiente beatae molestiae
-            assumenda?
-          </Accordion>
-          <Accordion title="Lorem ipsum dolor sit amet?">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos
-            deserunt cum temporibus adipisci perferendis, mollitia, obcaecati
-            fugiat, odit at laudantium autem sequi eos cumque labore amet itaque
-            rerum? Harum delectus soluta optio, sequi veniam, doloribus ducimus,
-            animi accusantium deserunt molestias vero ex. Quia temporibus
-            possimus nulla asperiores. Earum, eligendi delectus officiis, aut
-            expedita consectetur in iusto deserunt minus maiores nam accusamus
-            quos dolorem nihil nesciunt. Id sit consequatur voluptatum obcaecati
-            error earum voluptatibus molestias pariatur, quis placeat
-            laboriosam? Corporis corrupti error dolores totam, tenetur
-            laudantium eveniet fugiat consequuntur ipsa quisquam perspiciatis.
-            Repellat consequatur animi iusto sapiente beatae molestiae
-            assumenda?
-          </Accordion>
-          <Accordion title="Lorem ipsum dolor sit amet?">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos
-            deserunt cum temporibus adipisci perferendis, mollitia, obcaecati
-            fugiat, odit at laudantium autem sequi eos cumque labore amet itaque
-            rerum? Harum delectus soluta optio, sequi veniam, doloribus ducimus,
-            animi accusantium deserunt molestias vero ex. Quia temporibus
-            possimus nulla asperiores. Earum, eligendi delectus officiis, aut
-            expedita consectetur in iusto deserunt minus maiores nam accusamus
-            quos dolorem nihil nesciunt. Id sit consequatur voluptatum obcaecati
-            error earum voluptatibus molestias pariatur, quis placeat
-            laboriosam? Corporis corrupti error dolores totam, tenetur
-            laudantium eveniet fugiat consequuntur ipsa quisquam perspiciatis.
-            Repellat consequatur animi iusto sapiente beatae molestiae
-            assumenda?
-          </Accordion>
-          <Accordion title="Lorem ipsum dolor sit amet?">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab quos
-            deserunt cum temporibus adipisci perferendis, mollitia, obcaecati
-            fugiat, odit at laudantium autem sequi eos cumque labore amet itaque
-            rerum? Harum delectus soluta optio, sequi veniam, doloribus ducimus,
-            animi accusantium deserunt molestias vero ex. Quia temporibus
-            possimus nulla asperiores. Earum, eligendi delectus officiis, aut
-            expedita consectetur in iusto deserunt minus maiores nam accusamus
-            quos dolorem nihil nesciunt. Id sit consequatur voluptatum obcaecati
-            error earum voluptatibus molestias pariatur, quis placeat
-            laboriosam? Corporis corrupti error dolores totam, tenetur
-            laudantium eveniet fugiat consequuntur ipsa quisquam perspiciatis.
-            Repellat consequatur animi iusto sapiente beatae molestiae
-            assumenda?
-          </Accordion>
-        </div>
-      </Wrapper>
+      <div className="w-screen bg-zinc-900/80">
+        <Wrapper paddedContent="md">
+          <UiSection id="o-mne" title="O mně">
+            <div className="space-y-10">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                deleniti voluptate nostrum vitae voluptas impedit quibusdam modi
+                dignissimos quod quaerat?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem ducimus repudiandae dolorem. Quo autem aspernatur aut
+                repellat commodi ab eum quas quis, a, rerum architecto
+                blanditiis, sit reprehenderit placeat amet non asperiores id eos
+                dignissimos rem quibusdam atque. Quod molestias distinctio
+                dolorum praesentium laudantium sapiente commodi beatae tempore
+                eligendi voluptas.
+              </p>
+            </div>
+          </UiSection>
+        </Wrapper>
+
+        <Portfolio />
+
+        <Wrapper paddedContent="lg">
+          <Heading as={"h2"} size="2xl">
+            {" "}
+            Lorem ipsum dolor
+          </Heading>
+        </Wrapper>
+        <Wrapper paddedContent="lg">
+          <Heading as={"h2"} size="2xl">
+            {" "}
+            Lorem ipsum dolor
+          </Heading>
+        </Wrapper>
+        <Wrapper paddedContent="lg">
+          <Heading as={"h2"} size="2xl">
+            {" "}
+            Lorem ipsum dolor
+          </Heading>
+        </Wrapper>
+        <Wrapper paddedContent="lg">
+          <Heading as={"h2"} size="2xl">
+            {" "}
+            Lorem ipsum dolor
+          </Heading>
+        </Wrapper>
+        <Wrapper paddedContent="lg">
+          <Heading as={"h2"} size="2xl">
+            {" "}
+            Lorem ipsum dolor
+          </Heading>
+        </Wrapper>
+      </div>
     </>
   );
 };

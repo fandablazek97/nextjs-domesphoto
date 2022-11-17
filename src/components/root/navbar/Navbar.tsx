@@ -3,9 +3,7 @@ import Wrapper from "@ui/Wrapper";
 import { useScrollPosition } from "@hooks/useScrollPosition";
 import AppLink from "@ui/AppLink";
 import { useState } from "react";
-import ThemeSwitcher from "./ThemeSwitcher";
 import Menu from "./Menu";
-import NavbarCta from "./NavbarCta";
 import NavbarLinks from "./NavbarLinks";
 
 export default function Navbar() {
@@ -30,12 +28,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed isolate z-40 h-16 w-screen transition-[background,transform,opacity,box-shadow] duration-500 sm:h-20 2xl:h-24 
+      className={`fixed isolate z-40 h-16 w-screen bg-gradient-to-b from-zinc-900/60 transition duration-500 sm:h-20 2xl:h-24 
         ${isVisible ? "translate-y-0" : "-translate-y-full"}
-        ${isScrolled ? "bg-body/80 backdrop-blur-md" : ""} 
-        ${
-          isVisible && isScrolled ? "shadow-xl dark:shadow-none" : "shadow-none"
-        }
+        ${isScrolled ? "backdrop-blur-md" : ""} 
       `}
     >
       <Wrapper
@@ -44,24 +39,15 @@ export default function Navbar() {
       >
         {/* Logo */}
         <AppLink href="/" passHref>
-          <a className="z-10 mr-auto origin-left scale-75 outline-none focus-visible:ring-4 focus-visible:ring-copy-rich/70 sm:scale-100">
-            <BrandLogotype variant="light-background" className="dark:hidden" />
-            <BrandLogotype
-              variant="dark-background"
-              className="hidden dark:block"
-            />
+          <a className="absolute top-1/2 left-1/2 z-10 origin-center -translate-x-1/2 -translate-y-1/2 scale-75 outline-none focus-visible:ring-4 focus-visible:ring-copy-rich/70 sm:scale-100">
+            <BrandLogotype variant="dark-background" />
           </a>
         </AppLink>
 
         {/* Links */}
-        <NavbarLinks className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block" />
+        <NavbarLinks className="ml-auto hidden xl:block" />
 
-        {/* Call to action */}
-        <NavbarCta className="hidden lg:block" />
-
-        <ThemeSwitcher />
-
-        <Menu className="block lg:hidden" />
+        <Menu className="block xl:hidden" />
       </Wrapper>
     </nav>
   );

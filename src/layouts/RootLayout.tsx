@@ -3,6 +3,7 @@ import Navbar from "../components/root/navbar/Navbar";
 import SkipToContent from "@components/root/SkipToContent";
 import Footer from "@components/root/footer/Footer";
 import { config } from "@configs/site-config";
+import ExportedImage from "next-image-export-optimizer";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -46,6 +47,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <meta name="msapplication-TileColor" content="#da532c" />
       </NextHead>
+      <div className="pointer-events-none fixed inset-0 -z-50 h-screen w-screen">
+        <ExportedImage
+          src="/images/bg/bg-1.jpg"
+          alt="Obrázek pozadí"
+          width={1620}
+          height={1080}
+          loading="eager"
+          placeholder="blur"
+          className="h-full w-full bg-zinc-900 object-cover opacity-60"
+        />
+      </div>
       <header>
         <SkipToContent />
         <Navbar />

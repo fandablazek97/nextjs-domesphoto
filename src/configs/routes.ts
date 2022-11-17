@@ -1,15 +1,15 @@
 export const routes = [
   {
     href: "/",
-    label: "Hlavní strana",
+    label: "O mně",
   },
   {
     href: "/customization",
-    label: "Přizpůsobení šablony",
+    label: "Portfolio",
   },
   {
     href: "/components",
-    label: "Komponenty",
+    label: "Reference",
   },
   {
     href: "/contact",
